@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+## Основные возможности
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Операции над матрицами
+*   **Сложение и вычитание:** пошаговый расчет для каждого элемента.
+*   **Умножение:** подробная демонстрация правила «строка на столбец».
+*   **Транспонирование:** визуальное преобразование строк в столбцы.
+*   **Определитель (det):** расчет методом разложения по строке с показом миноров и алгебраических дополнений.
+*   **Ранг (rank):** нахождение ранга через приведение матрицы к ступенчатому виду методом Гаусса.
 
-Currently, two official plugins are available:
+### Решение СЛАУ
+*   **Три метода решения:** Метод Гаусса, Метод Крамера и Матричный метод.
+*   **Анализ совместности:** автоматическая проверка по теореме Кронекера-Капелли.
+*   **Любые типы ответов:**
+    *   Единственное решение.
+    *   Общее решение с параметрами ($t_1, t_2...$) при бесконечном количестве корней.
+    *   Доказательство несовместности при отсутствии решений.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Особенности
 
-## React Compiler
+*   **Дробные вычисления:** все результаты и промежуточные шаги выводятся в виде **обыкновенных дробей** (например, `5/3`, `-1/2`).
+*   **Визуализация:** автоматическое **зачеркивание строк и столбцов** при расчете миноров и выделение опорных элементов.
+*   **PWA:** приложение можно установить на смартфон или компьютер как полноценную программу.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Технологический стек
 
-## Expanding the ESLint configuration
+*   **React + TypeScript** — фронтенд часть.
+*   **GitHub Actions** — автоматический деплой на GitHub Pages.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Установка и запуск
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  Клонируйте репозиторий:
+    ```bash
+    git clone https://github.com/artferchelovek/hits-algem-calculator.git
+    ```
+2.  Перейдите в папку проекта:
+    ```bash
+    cd hits-algem-calculator
+    ```
+3.  Установите зависимости:
+    ```bash
+    npm install
+    ```
+4.  Запустите сервер для разработки:
+    ```bash
+    npm run dev
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
