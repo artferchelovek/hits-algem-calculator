@@ -65,7 +65,7 @@ export class VectorCore {
 
     static crossProduct(a: Vector, b: Vector): CalculationResult<Vector> {
         if (a.length !== 3 || b.length !== 3) {
-            throw new Error('Векторное произведение определено только для 3D-векторов.');
+            throw new Error('Векторное произведение определено только для трёхмерных векторов.');
         }
         const result = [
             a[1] * b[2] - a[2] * b[1],
@@ -87,7 +87,7 @@ export class VectorCore {
 
     static mixedProduct(a: Vector, b: Vector, c: Vector): CalculationResult<number> {
         if (a.length !== 3 || b.length !== 3 || c.length !== 3) {
-            throw new Error('Смешанное произведение определено только для 3D-векторов.');
+            throw new Error('Смешанное произведение определено только для трёхмерных векторов.');
         }
         const cross = this.crossProduct(a, b);
         const dot = cross.result![0] * c[0] + cross.result![1] * c[1] + cross.result![2] * c[2];

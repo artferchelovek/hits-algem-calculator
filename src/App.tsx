@@ -163,17 +163,17 @@ export default function App() {
         {mode === 'vectors' ? (
           <>
             <div className="card">
-              <h3>Вектор A</h3>
+              <h3>Вектор a</h3>
               <p className="hint">Через запятую: 1, 2, 3</p>
               <input className="vector-input" value={inputVecA} onChange={(e) => setInputVecA(e.target.value)} />
             </div>
             <div className="card">
-              <h3>Вектор B</h3>
+              <h3>Вектор b</h3>
               <p className="hint">Через запятую: 4, 5, 6</p>
               <input className="vector-input" value={inputVecB} onChange={(e) => setInputVecB(e.target.value)} />
             </div>
             <div className="card">
-              <h3>Вектор C (для смешанного произведения)</h3>
+              <h3>Вектор c (для смешанного произведения)</h3>
               <p className="hint">Через запятую: 7, 8, 9</p>
               <input className="vector-input" value={inputVecC} onChange={(e) => setInputVecC(e.target.value)} />
             </div>
